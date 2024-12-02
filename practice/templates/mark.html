@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marksheet</title>
+</head>
+<body>
+    <h1>Calculate Marksheet</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <label>Sub1</label>
+        <input type="text" name="sub1" value="{{s1}}">
+        <label>Sub2</label>
+        <input type="text" name="sub2" value="{{s2}}">
+        <label>Sub3</label>
+        <input type="text" name="sub3" value="{{s3}}">
+        <label>Sub4</label>
+        <input type="text" name="sub4" value="{{s4}}">
+        <label>Sub5</label>
+        <input type="text" name="sub5" value="{{s5}}"><br><br>
+
+        <button type="submit" >Calc</button>
+
+        <label>Total</label>
+        <input type="text" name="total" value="{{total}}">
+        <label>Percentage</label>
+        <input type="text" value="{{per}}">
+
+
+
+
+
+    </form>
+    
+</body>
+</html>
