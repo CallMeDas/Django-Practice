@@ -1,5 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib.auth.forms import UserCreationForm
+from .forms import creatuserform
+
+from django.contrib import messages
+
+from django.contrib.auth import authenticate, login, logout
 
 def home(request):
     return render(request, 'index.html')
@@ -58,3 +64,33 @@ def marksheet(request):
         res = {'total': 'invalid'}
         
     return render(request, 'mark.html',res)
+
+
+
+def sign(request):
+    
+    form = creatuserform()
+
+    if request.method == 'POST':
+        form = creatuserform(request.POST)
+        if form.is_valid():
+            form.save()
+    context = {'form': form}
+    return render(request,'sign.html',context)
+
+def login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+
+        user = authenticate(request, username=username, password = password)
+        print(user)
+
+        if user is not None:
+            login(request,user)
+            return redirect('home')
+        else:
+            messages.info(request, 'email or Password is incorrect')
+    
+    return render(request,'login.html')
