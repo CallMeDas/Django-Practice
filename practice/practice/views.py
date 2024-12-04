@@ -47,7 +47,7 @@ def marksheet(request):
             s3 = eval(request.POST.get("sub3"))
             s4 = eval(request.POST.get("sub4"))
             s5 = eval(request.POST.get("sub5"))
-            total = (s1+s2+s3+s4+s5)/5
+            total = (s1+s2+s3+s4+s5)
             per = (total/500)*100
         res= {
             's1':s1,
@@ -78,7 +78,7 @@ def sign(request):
     context = {'form': form}
     return render(request,'sign.html',context)
 
-def login(request):
+def loginn(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
