@@ -78,7 +78,7 @@ def sign(request):
     context = {'form': form}
     return render(request,'sign.html',context)
 
-def login(request):
+def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')

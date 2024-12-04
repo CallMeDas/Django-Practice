@@ -24,5 +24,5 @@ urlpatterns = [
     path('calc', views.calculator),
     path('mark', views.marksheet),
     path('sign', views.sign),
-    path('login', views.login),
+    path('login', views.login_view),
 ]
